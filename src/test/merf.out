@@ -1,0 +1,30 @@
+  common line 1
+R common line 2 -- changed by remote
+r common line 2
+  common line 3
+C new line added between 3 and 4 by both
+  common line 4
+  common line 5
+  common line 6
+l common line 7
+L common line 7 -- changed by local
+  common line 8
+  common line 9
+  common line 10
+  common line 11
+  common line 12
+x 
+R common line 13 -- changed by remote (and local)!
+x 
+L common line 13 -- changed by local (and remote)!
+c common line 13
+  common line 14
+  common line 15
+  common line 16
+c common line 17
+  common line 18
+  common line 19
+  common line 20
+R new line 21 by remote
+x 
+L new line 21 by local

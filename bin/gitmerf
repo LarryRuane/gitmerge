@@ -1,0 +1,31 @@
+#!/bin/sh
+set -e
+
+# git mergetool -t m
+LOCAL=$1
+REMOTE=$2
+BASE=$3
+MERGED=$4
+
+# pave a/b/c creates directories a and a/b
+pave() {
+    mkdir -p "${1%/*}"
+}
+
+pave merftool/m/$MERGED
+merf $REMOTE $LOCAL $BASE >merftool/m/$MERGED
+
+# edit in a separate directory, just to preserve m
+pave merftool/e/$MERGED
+cp merftool/m/$MERGED merftool/e/$MERGED
+gvim -f merftool/e/$MERGED
+
+# removing the entire file in the editor aborts the merge
+test ! -s merftool/e/$MERGED && exit 1
+
+demerf merftool/e/$MERGED >$MERGED
+
+# The merftool directory is left behind, in case things go wrong as it may
+# help with recovery. But feel free to remove it, (or add to .gitignore)
+# or comment out the next line:
+# rm -r merftool
