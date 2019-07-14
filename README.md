@@ -238,7 +238,7 @@ that begins with any of those three letters. These are often conflicts
 or close to conflicts.
 
 When you exit the editor, git will bring up the next file with conflicts.
-If you want to abondon the merge process, delete all the lines in
+If you want to abandon the merge process, delete all the lines in
 the editor, write and quit, and you will be prompted for whether you'd
 like to continue or stop. (If you continue, the same merf file will
 again appear.)
